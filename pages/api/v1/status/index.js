@@ -47,12 +47,12 @@ async function status(request, response) {
     });
   } catch (error) {
     console.error(error);
-    response.status(200).json({
-      updated_at: updatedAt,
-      database: {
-        status: "unhealthy",
-      },
-    });
+    // response.status(200).json({
+    //   updated_at: updatedAt,
+    //   database: {
+    //     status: "unhealthy",
+    //   },
+    // });
   }
 }
 
