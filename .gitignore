@@ -3,4 +3,3 @@ node_modules
 .nvmrc
 .prettierignore
 .editorconfig
-package-lock.json

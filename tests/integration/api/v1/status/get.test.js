@@ -25,5 +25,6 @@ test("GET to /api/v1/status should return 200", async () => {
     expect(responseBody.database.latency.second_time_to_response).toBeDefined();
     expect(responseBody.database.latency.tird_time_to_response).toBeDefined();
     expect(responseBody.database.version).toBeDefined();
+    expect(responseBody.database.version).toEqual("16.0");
   }
 });
