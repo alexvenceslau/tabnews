@@ -17,14 +17,12 @@ test("GET to /api/v1/status should return 200", async () => {
 
   expect(responseBody.updated_at).toEqual(parsedUpdatedAt);
 
-  if (responseBody.database.status != "unhealthy") {
-    expect(responseBody.database).toBeDefined();
-    expect(responseBody.database.max_connections).toBeDefined();
-    expect(responseBody.database.opened_connections).toEqual(1);
-    expect(responseBody.database.latency.first_time_to_response).toBeDefined();
-    expect(responseBody.database.latency.second_time_to_response).toBeDefined();
-    expect(responseBody.database.latency.tird_time_to_response).toBeDefined();
-    expect(responseBody.database.version).toBeDefined();
-    expect(responseBody.database.version).toEqual("16.0");
-  }
+  expect(responseBody.database).toBeDefined();
+  expect(responseBody.database.max_connections).toBeDefined();
+  expect(responseBody.database.opened_connections).toEqual(1);
+  expect(responseBody.database.latency.first_time_to_response).toBeDefined();
+  expect(responseBody.database.latency.second_time_to_response).toBeDefined();
+  expect(responseBody.database.latency.tird_time_to_response).toBeDefined();
+  expect(responseBody.database.version).toBeDefined();
+  expect(responseBody.database.version).toEqual("16.0");
 });
