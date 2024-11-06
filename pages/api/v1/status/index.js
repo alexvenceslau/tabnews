@@ -7,7 +7,7 @@ async function status(request, response) {
 
     const [maxConnectionsResult, superuserReservedConnectionsResult] =
       await database.query(
-        "SHOW max_connections; SHOW superuser_reserved_connections; "
+        "SHOW max_connections; SHOW superuser_reserved_connections; ",
       );
     const firstQueryDuration = performance.now() - firstQueryTimer;
 
