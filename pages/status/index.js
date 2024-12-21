@@ -22,14 +22,16 @@ function UpdatedAd() {
     refreshInterval: 10000,
   });
 
-  let updatedAtText = "Carregando...";
-  let dbStatusText = "Carregando...";
-  let dbMxConnectionsText = "Carregando...";
-  let dbOpenConnectionsText = "Carregando...";
-  let dbVersionText = "Carregando...";
-  let dbFstResponseText = "Carregando...";
-  let dbSndResponseText = "Carregando...";
-  let dbTrdResponseText = "Carregando...";
+  const msgCarregando = "Carregando...";
+
+  let updatedAtText = msgCarregando;
+  let dbStatusText = msgCarregando;
+  let dbMxConnectionsText = msgCarregando;
+  let dbOpenConnectionsText = msgCarregando;
+  let dbVersionText = msgCarregando;
+  let dbFstResponseText = msgCarregando;
+  let dbSndResponseText = msgCarregando;
+  let dbTrdResponseText = msgCarregando;
 
   if (!isLoading && data) {
     updatedAtText = new Date(data.updated_at).toLocaleString("pt-BR");
