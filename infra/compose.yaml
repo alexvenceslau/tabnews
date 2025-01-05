@@ -6,9 +6,3 @@ services:
       - ../.env.development
     ports:
       - "5432:5432"
-    networks:
-      - infra_default
-
-networks:
-  infra_default:
-    external: true
