@@ -1,0 +1,51 @@
+.perfil {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 40px auto;
+  gap: 5px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Arial+Rounded+MT+Bold&display=swap");
+
+font-family: "Arial Rounded MT Bold", sans-serif !important;
+
+.perfil img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.descricao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  gap: 2px;
+}
+
+.perfil h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.perfil span {
+  font-size: 18px;
+  color: #666;
+}
+
+.perfil p {
+  font-size: 16px;
+  color: #666;
+}
