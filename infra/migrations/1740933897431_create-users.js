@@ -29,7 +29,14 @@ exports.up = (pgm) => {
       notNull: true,
       default: pgm.func("timezone('utc', now())"),
     },
+    autoincrement_id: {
+      type: "serial",
+      notNull: true,
+      unique: true,
+    },
   });
+
+  pgm.createIndex("users", "autoincrement_id");
 };
 
 exports.down = false;
