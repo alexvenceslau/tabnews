@@ -9,19 +9,12 @@ beforeAll(async () => {
 describe("GET  /api/v1/users/[username]", () => {
   describe("Anonymous user", () => {
     test("With exact case match", async () => {
-      const response1 = await fetch("http://localhost:3000/api/v1/users/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: "MesmoCase",
-          email: "mesmo.case@gmail.com",
-          password: "senha123",
-        }),
+      const createdUser = await orchestrator.createUser({
+        username: "MesmoCase",
+        email: "mesmo.case@gmail.com",
+        password: "senha123",
       });
 
-      expect(response1.status).toBe(201);
       const response2 = await fetch(
         "http://localhost:3000/api/v1/users/MesmoCase",
       );
@@ -32,7 +25,7 @@ describe("GET  /api/v1/users/[username]", () => {
       expect(responseBody2).toEqual({
         id: responseBody2.id,
         username: "MesmoCase",
-        email: "mesmo.case@gmail.com",
+        email: createdUser.email,
         password: responseBody2.password,
         created_at: responseBody2.created_at,
         updated_at: responseBody2.updated_at,
@@ -40,19 +33,10 @@ describe("GET  /api/v1/users/[username]", () => {
       });
     });
     test("With case mismatch", async () => {
-      const response1 = await fetch("http://localhost:3000/api/v1/users/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: "CaseDiferente",
-          email: "case.diferente@gmail.com",
-          password: "senha123",
-        }),
+      const createdUser = await orchestrator.createUser({
+        username: "CaseDiferente",
       });
 
-      expect(response1.status).toBe(201);
       const response2 = await fetch(
         "http://localhost:3000/api/v1/users/casediferente",
       );
@@ -63,7 +47,7 @@ describe("GET  /api/v1/users/[username]", () => {
       expect(responseBody2).toEqual({
         id: responseBody2.id,
         username: "CaseDiferente",
-        email: "case.diferente@gmail.com",
+        email: createdUser.email,
         password: responseBody2.password,
         created_at: responseBody2.created_at,
         updated_at: responseBody2.updated_at,
